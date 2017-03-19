@@ -14,6 +14,7 @@ setup window = do
   behavior         <- stepper "No file selected." event
   text             <- UI.div # sink UI.text behavior
   input            <- UI.input # set UI.type_ "file"
+  -- input            <- UI.button # set UI.text "file"
   getBody window #+ map element [text, input]
   on UI.valueChange input $ const $ do
     liftIO $ handler "File selected."
